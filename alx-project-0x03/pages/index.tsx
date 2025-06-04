@@ -1,14 +1,10 @@
 import Button from "@/components/common/Button";
 import { useRouter } from "next/router";
-
-interface PageRouteProps {
-  pageRoute: string
-}
+import { PageRouteProps } from "@/interface/index";
 
 export default function Home() {
   const router = useRouter();
 
-  // Imeperative routing with useRouter
   const routeToNextPage  = ({ pageRoute }: PageRouteProps) => {
     router.push(pageRoute, undefined, { shallow: false})
   }
@@ -22,7 +18,7 @@ export default function Home() {
         Your one-stop platform for everything AI you need. Start exploring by
         navigating to our features below.
       </p>
-
+      
       {/* Navigation Options */}
       <div className="flex gap-6">
         <Button action={() => routeToNextPage({ pageRoute: '/generate-text-ai' })} buttonLabel="Generate Text" buttonBackgroundColor="blue" />
